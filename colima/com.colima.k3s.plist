@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.colima.k3s</string>
+
+    <!-- 開機就啟動 & 掛掉會自動重啟 -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- 指定使用者 kwlai0927 執行 -->
+    <key>UserName</key>
+    <string>kwlai0927</string>
+
+    <!-- 環境變數（PATH 很重要，因為 Daemon 環境通常很乾淨） -->
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <!-- 要執行的指令 -->
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/homebrew/bin/colima</string>
+      <string>start</string>
+      <string>--profile</string>
+      <string>nonprod</string>
+      <string>--tty=false</string>
+    </array>
+
+    <!-- 日誌輸出路徑 -->
+    <key>StandardOutPath</key>
+    <string>/var/log/colima-k3s.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/colima-k3s.err.log</string>
+  </dict>
+</plist>

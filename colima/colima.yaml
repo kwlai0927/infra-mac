@@ -1,0 +1,24 @@
+cpu: 6
+memory: 16
+disk: 80
+arch: aarch64
+
+runtime: containerd
+
+kubernetes:
+  enabled: true
+  # 你可以指定版本，例如：
+  # version: "v1.30.3+k3s1"
+  options:
+    disable:
+      - traefik   # 不要預設的 traefik ingress，建議自己安裝 ingress-nginx 或 traefik v3
+
+network:
+  address: true    # 給 VM 一個可達 IP
+  # dns: ["1.1.1.1", "8.8.8.8"]  # 如要自訂 DNS 可開啟
+
+# 範例：掛載專案到 VM
+mounts:
+  - location: ~/k3s
+    target: /workspace
+    writable: true
