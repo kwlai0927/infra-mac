@@ -21,16 +21,16 @@
     <dict>
       <key>PATH</key>
       <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+      <key>TS_AUTHKEY</key>
+      <string>tskey-auth-kLqBrVYFS221CNTRL-dMRqZ3YqjRKEGsUYxUVoRKvWHRHFnC2f</string>
     </dict>
 
     <!-- 要執行的指令 -->
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/homebrew/bin/colima</string>
-      <string>start</string>
-      <string>--profile</string>
-      <string>nonprod</string>
-      <string>--tty=false</string>
+      <string>/bin/bash</string>
+      <string>-c</string>
+      <string>colima start --profile nonprod --tty=false && sleep 10 && colima ssh --profile nonprod -- sudo tailscale up --authkey=$TS_AUTHKEY --ssh --accept-routes || true</string>
     </array>
 
     <!-- 日誌輸出路徑 -->
