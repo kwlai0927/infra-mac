@@ -15,7 +15,7 @@ kubernetes:
 
 network:
   address: true    # 給 VM 一個可達 IP
-  # dns: ["1.1.1.1", "8.8.8.8"]  # 如要自訂 DNS 可開啟
+  dns: ["1.1.1.1", "8.8.8.8", "100.100.100.100"]  # 混合使用公共 DNS 和 Tailscale DNS
 
 # 範例：掛載專案到 VM
 mounts:

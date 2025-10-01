@@ -11,6 +11,7 @@ PROFILE_FILE="${PROFILE_DIR}/colima.yaml"
 KUBE_DIR="${USER_HOME}/.kube"
 OUT_KUBECONFIG="${KUBE_DIR}/tailscale.yaml"
 TS_AUTHKEY="${TS_AUTHKEY:-}"
+CF_TUNNEL_TOKEN="${CF_TUNNEL_TOKEN:-}"
 
 # 準備 mount 與 kube 目錄（用使用者身分）
 sudo -u "${TARGET_USER}" mkdir -p "${USER_HOME}/k3s" "${KUBE_DIR}"
